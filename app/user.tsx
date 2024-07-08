@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { auth, signIn, signOut } from '@/lib/auth';
-import Image from 'next/image';
+import { UserAuth } from '@/components/container/UserAuth';
+import { PersonIcon } from '@radix-ui/react-icons';
 
 export async function User() {
   const session = await auth();
@@ -11,31 +12,22 @@ export async function User() {
       <form
         action={async () => {
           'use server';
-          await signIn('github');
+          await signIn('credentials', {
+            email: 'test@test.com'
+          });
         }}
       >
-        <Button variant="outline">Sign In</Button>
+        <Button variant={"link"} className='text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center'><PersonIcon/>Sign In</Button>
       </form>
     );
   }
+  
+  const signOutUser = async () => {
+    'use server'
+    await signOut();
+  }
 
-  return (
-    <div className="flex items-center gap-4">
-      <form
-        action={async () => {
-          'use server';
-          await signOut();
-        }}
-      >
-        <Button variant="outline">Sign Out</Button>
-      </form>
-      <Image
-        className="h-8 w-8 rounded-full"
-        src={user.image!}
-        height={32}
-        width={32}
-        alt={`${user.name} avatar`}
-      />
-    </div>
+  return (      
+    <UserAuth user={user} signOut={signOutUser}/>
   );
 }
