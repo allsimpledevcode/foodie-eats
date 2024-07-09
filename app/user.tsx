@@ -1,33 +1,29 @@
-import { Button } from '@/components/ui/button';
 import { auth, signIn, signOut } from '@/lib/auth';
 import { UserAuth } from '@/components/container/UserAuth';
-import { PersonIcon } from '@radix-ui/react-icons';
+import { UserLoginForm } from '@/components/container/UserLoginForm';
 
 export async function User() {
   const session = await auth();
+
   const user = session?.user;
 
+  const onSubmitLogin = async (data: {
+    email: string;
+    passwordHash: string;
+  }) => {
+    'use server';
+
+    await signIn('credentials', data);
+  };
+
   if (!user) {
-    return (
-      <form
-        action={async () => {
-          'use server';
-          await signIn('credentials', {
-            email: 'test@test.com'
-          });
-        }}
-      >
-        <Button variant={"link"} className='text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center'><PersonIcon/>Sign In</Button>
-      </form>
-    );
-  }
-  
-  const signOutUser = async () => {
-    'use server'
-    await signOut();
+    return <UserLoginForm onSubmit={onSubmitLogin} />;
   }
 
-  return (      
-    <UserAuth user={user} signOut={signOutUser}/>
-  );
+  const signOutUser = async () => {
+    'use server';
+    await signOut();
+  };
+
+  return <UserAuth user={user} signOut={signOutUser} />;
 }

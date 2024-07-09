@@ -13,6 +13,8 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import Image from 'next/image';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 import { User } from 'next-auth';
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
@@ -32,13 +34,10 @@ export function UserAuth({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant={'link'}>
-          <Image
-            className="h-8 w-8 rounded-full"
-            src={user.image!}
-            height={32}
-            width={32}
-            alt={`${user.name} avatar`}
-          />
+          <Avatar>
+            <AvatarImage src={user?.name || ''} />
+            <AvatarFallback className='bg-slate-800 text-white'>L</AvatarFallback>
+          </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" side='bottom' align='end'>

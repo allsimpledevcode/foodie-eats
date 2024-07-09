@@ -4,12 +4,12 @@ import './globals.css';
 import { User } from './user';
 import Logo from '@/images/logo.svg';
 import {
-  HomeIcon,
   RocketIcon,
   CrumpledPaperIcon,
   CardStackIcon
 } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
+import { GlobalSearch } from '@/components/container/GlobalSearch';
 
 export const metadata = {
   title: 'Next.js App Router + NextAuth + Tailwind CSS',
@@ -32,10 +32,7 @@ export default function RootLayout({
             </div>
             <div className="flex items-center gap-6">
               <nav className="flex gap-8">
-                <a className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
-                  <HomeIcon />
-                  Home
-                </a>
+                <GlobalSearch />
                 <a className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
                   <RocketIcon />
                   Restarents
@@ -46,16 +43,56 @@ export default function RootLayout({
                 </a>
               </nav>
               <User />
-              <Button variant={'outline'} className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
+              <Button
+                variant={'outline'}
+                className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center"
+              >
                 <CardStackIcon />
-                Cart
-                (0)
+                Cart (0)
               </Button>
             </div>
           </div>
         </header>
         <main className="container">{children}</main>
-        <footer className="container">Footer column</footer>
+        <footer className="mt-10 bg-gray-900 py-12">
+          <div className="container flex justify-between">
+            <Image src={Logo} width={200} height={200} alt="Fooedie eats"/>
+            <div className='flex gap-14'>
+              <div>
+                <ul>
+                  <li>
+                    <a className="text-gray-400 text-md">FAQ</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Privacy policy</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Help & Support</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Term & Conditions</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <a className="text-gray-400 text-md">FAQ</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Privacy policy</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Help & Support</a>
+                  </li>
+                  <li className="mt-4">
+                    <a className="text-gray-400 text-md">Term & Conditions</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
