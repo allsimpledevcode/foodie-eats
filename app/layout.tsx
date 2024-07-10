@@ -10,6 +10,7 @@ import {
 } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { GlobalSearch } from '@/components/container/GlobalSearch';
+import Link from "next/link"
 
 export const metadata = {
   title: 'Next.js App Router + NextAuth + Tailwind CSS',
@@ -27,24 +28,20 @@ export default function RootLayout({
       <body>
         <header className="bg-gray-50 py-6">
           <div className="container flex justify-between">
-            <div>
+            <Link href={"/"}>
               <Image src={Logo} width={200} height={200} alt="Fooedie eats" />
-            </div>
+            </Link>
             <div className="flex items-center gap-6">
               <nav className="flex gap-8">
                 <GlobalSearch />
-                <a className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
-                  <RocketIcon />
-                  Restarents
-                </a>
-                <a className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
+                <Link href={"/offers-for-you"} className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center">
                   <CrumpledPaperIcon />
                   Offers
-                </a>
+                </Link>
               </nav>
               <User />
               <Button
-                variant={'outline'}
+                variant={'ghost'}
                 className="text-gray-600 hover:text-black cursor-pointer flex gap-1 items-center"
               >
                 <CardStackIcon />
