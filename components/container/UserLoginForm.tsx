@@ -13,7 +13,7 @@ import {
   SheetTrigger
 } from '@/components/ui/sheet';
 import { PersonIcon } from '@radix-ui/react-icons';
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import fetchHook from '@/lib/fetchHook';
 
@@ -95,7 +95,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={data.email || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onChange('email', e?.target?.value);
                   }}
                 />
@@ -110,7 +110,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={data?.passwordHash || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onChange('passwordHash', e?.target?.value);
                   }}
                 />
@@ -143,7 +143,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={registerForm.firstName || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onRegisterFormChange('firstName', e?.target?.value);
                   }}
                 />
@@ -158,7 +158,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={registerForm.lastName || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onRegisterFormChange('lastName', e?.target?.value);
                   }}
                 />
@@ -173,7 +173,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={registerForm.email || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onRegisterFormChange('email', e?.target?.value);
                   }}
                 />
@@ -188,7 +188,7 @@ export function UserLoginForm({ onSubmit }: { onSubmit: Function }) {
                   value={registerForm?.passwordHash || ''}
                   className="col-span-3"
                   // @ts-ignore
-                  onChange={(e: Event) => {
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     onRegisterFormChange('passwordHash', e?.target?.value);
                   }}
                 />
