@@ -28,8 +28,20 @@ This is a starter template using the following stack:
 - Guide - [Link](https://www.notion.so/FoodieEats-Your-Go-To-Food-Delivery-App-2723baf0ac7f46a99f9eecdba3455ed8)
 
 
-Finally, run the following commands to start the development server:
+## Local Development setup
+create `.env` file the project root directory with the below variables
+```
+POSTGRES_URL=<Add value>
+POSTGRES_USER=<Add value>
+POSTGRES_HOST=<Add value>
+POSTGRES_PASSWORD=<Add value>
+POSTGRES_DATABASE=<Add value>
 
+NEXTAUTH_URL=http://localhost:3000
+AUTH_SECRET=332e282f3e0a0d011a8724afa9f8d86b
+```
+
+Finally, run the following commands to start the development server:
 ```
 pnpm install
 pnpm dev
