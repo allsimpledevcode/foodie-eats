@@ -1,4 +1,4 @@
-<div><h3>FoodieEats - Your Go-To Food Delivery App (Built with the Next.js App Router)</h3></div>
+<h1>FoodieEats - Your Go-To Food Delivery App (Built with the Next.js App Router)</h1>
 
 <p>
 FoodieEats is a streamlined food delivery app designed to connect hungry customers with their favorite local restaurants. Whether you're craving a quick bite or planning a family feast, FoodieEats brings a diverse selection of cuisines right to your doorstep. With an easy-to-use interface and essential features, our app ensures a seamless and delightful food ordering experience
